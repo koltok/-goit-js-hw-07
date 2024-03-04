@@ -7,11 +7,11 @@
 
   const nameImput = document.querySelector("#name-input");
   const nameOutput = document.querySelector("#name-output");
-  const nameOutputFun = () => {if(nameImput.value!=" ")
-    {nameOutput.textContent = nameImput.value}};
-  nameImput.addEventListener("input", nameOutputFun);
-  console.dir (nameImput);
-  console.log (nameOutput);
+  const updateGreeting = () => {if(nameImput.value!=" ")
+    {nameOutput.textContent = nameImput.value.trim()}};
+  nameImput.addEventListener("input", updateGreeting);
+  //console.dir (nameImput);
+ // console.log (nameOutput);
 
     
   

@@ -34,16 +34,27 @@ const images = [
     },
   ];
   
-  const gal = document.querySelector(".gallery");
-  images.forEach((im) => {
-  const elem = document.createElement(`li`);
-  gal.append (elem);
-  const image = document.createElement('img');
-  image.src = im.url;
-  image.alt = im.alt;
-  elem.append(image);
-  })
-  console.log (gal)
+const gal = document.querySelector(".gallery");
+
+const markup = images.map((mark) => `<li><img src=${mark.url} alt=${mark.alt} /> </li>`)
+  .join("");
+
+//gal.innerHTML = markup;
+  
+gal.insertAdjacentHTML("afterbegin", markup);
+  
+ // images.forEach((im) => {
+ // const elem = document.createElement(`li`);
+    
+ // gal.append (elem);
+ // const image = document.createElement('img');
+    
+  //image.src = im.url;
+  //image.alt = im.alt;
+    
+  
+
+
 
 
 

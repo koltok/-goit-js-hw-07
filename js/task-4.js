@@ -12,8 +12,8 @@ if (event.target.email.value === ""||event.target.password.value === "")
 {alert ("All form fields must be filled in");
 }
 const data = {
-    email:event.target.email.value,
-    password:event.target.password.value,
+    email:event.target.email.value.trim(),
+    password:event.target.password.value.trim(),
 };
 console.log (data);
 event.target.reset();};

@@ -20,7 +20,7 @@
 // у такий спосіб видаляючи всі створені елементи.
 
 const controls =  document.querySelector("#controls");
-console.dir(controls);
+//console.dir(controls);
 const childrenControls = controls.children;
 const inputCon = childrenControls[0];
 const createBut = childrenControls[1];
@@ -35,42 +35,44 @@ function getRandomHexColor() {
         .padStart(6, 0)}`
 }
       
-const amount = inputCon.value;
+let amount;
 
-function createBoxes(amount){
+function createBoxes(amount) {
+    amount = inputCon.value;
     let size = 30;
     const boxBox = [];
     for (let i = 0; i < amount; i++) {
     const box = document.createElement ("div");
     box.style.backgroundColor = getRandomHexColor();
-    box.style.width = '${size}px';
+    box.style.width = `${size}px`;
     box.style.display = "Block";
-    box.style.height = '${size}px';
+    box.style.height = `${size}px`;
     size += 10;
     //const box = '<div class = "box" style = "display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>';
     boxBox.push(box);
     //boxes.insertAdjacentHTML("beforeend", box); 
+    
+    }
     return boxBox;
-}
-boxes.append(...boxBox);
+    boxes.append(...boxBox);
+    
     //inputCon.value = "";
-    console.log(boxes);
+    //console.log(boxes);
 }
 
-
-function createFun(event) {
+function handleCreateButtonClick(event) {
     if(inputCon.value >= 1 && inputCon.value <= 100)
     {createBoxes(amount);
     } else {
     alert("Enter a value between 1 and 100");
     }};
 
-createBut.addEventListener('click', createFun);
-console.log (createFun);
+createBut.addEventListener('click', handleCreateButtonClick);
+//console.log (createFun);
 
 
 function destroyFun(event) {
-boxes.remove()};
+boxBox.remove()};
 
 destroyBut.addEventListener('click', destroyFun);
 
