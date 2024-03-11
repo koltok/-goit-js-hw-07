@@ -7,8 +7,10 @@
 
   const nameImput = document.querySelector("#name-input");
   const nameOutput = document.querySelector("#name-output");
-  const updateGreeting = () => {if(nameImput.value!=" ")
-    {nameOutput.textContent = nameImput.value.trim()}};
+const updateGreeting = () => {
+  nameImput.value = nameImput.value.trim();
+  if (nameImput.value.length >= 1)
+    {nameOutput.textContent = nameImput.value}};
   nameImput.addEventListener("input", updateGreeting);
   //console.dir (nameImput);
  // console.log (nameOutput);

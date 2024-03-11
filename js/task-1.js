@@ -5,11 +5,10 @@
 const categUl = document.querySelectorAll(".item")
 console.log(`Number of categories: ${categUl.length}`); 
 
-//const categUlli = document.querySelectorAll('.item > li')
 categUl.forEach((categLi) => {
     const categoryTitle = categLi.firstElementChild.textContent;
     const itemsCount = categLi.querySelectorAll('ul li').length;
-    console.log(`Category: ${categoryTitle}');
-    consoie.log ('Elements: ${itemsCount}`);
+    console.log(`Category: ${categoryTitle}`);
+    console.log (`Elements: ${itemsCount}`);
 });
 
