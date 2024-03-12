@@ -28,7 +28,6 @@ const destroyBut = childrenControls[2];
 
 const boxes =  document.querySelector("#boxes");
 
-
 function getRandomHexColor() {
     return `#${Math.floor(Math.random() * 16777215)
       .toString(16)
@@ -36,47 +35,41 @@ function getRandomHexColor() {
 }
       
 let amount;
-const boxBox = [];
 
 function createBoxes(amount) {
-    amount = inputCon.value;
-    let size = 30;
-    
-    for (let i = 0; i < amount; i++) {
-    const box = document.createElement("div");
-    box.style.backgroundColor = getRandomHexColor();
-    box.style.width = `${size}px`;
-    box.style.display = "Block";
-    box.style.height = `${size}px`;
-    size += 10;
-    //const box = '<div class = "box" style = "display: block; margin-right: 30px; margin-bottom: 30px; background-color: ${getRandomHexColor()}; width: ${size}px; height: ${size}px;"></div>';
-    boxBox.push(box);
-    //boxes.insertAdjacentHTML("beforeend", box); 
-    
+   amount = Number(inputCon.value);
+    if (amount < 1 || amount > 100) {
+        return;
     }
-    boxes.append(...boxBox);
-    return boxBox;
-    
-    //inputCon.value = "";
-    //console.log(boxes);
+    boxes.innerHTML = "";
+    let size = 30;
+    for (let i = 0; i < amount; i++) {
+        const box = document.createElement("div");
+        box.style.backgroundColor = getRandomHexColor();
+        box.style.width = `${size}px`;
+        box.style.height = `${size}px`;
+        size += 10;
+        boxes.appendChild(box);
+    }
+    inputCon.value = "";
 }
 
-function handleCreateButtonClick(event) {
-    if(inputCon.value >= 1 && inputCon.value <= 100)
-    {createBoxes(amount);
-    } else {
-    alert("Enter a value between 1 and 100");
-    }};
+//function handleCreateButtonClick(event) {
+  //  if(inputCon.value >= 1 && inputCon.value <= 100)
+  //  {createBoxes(amount);
+  //  } else {
+  //  alert("Enter a value between 1 and 100");
+   // }
+//};
 
-createBut.addEventListener('click', handleCreateButtonClick);
+createBut.addEventListener('click', () => createBoxes(amount));
 //console.log (createFun);
 
+function destroyBoxes() {
+    boxes.innerHTML = "";
+}
 
-function destroyFun(event) {
-    let i;
-    for (i = 0; i < boxBox.length; i++){boxBox[i].remove()};};
-
-destroyBut.addEventListener('click', destroyFun);
+destroyBut.addEventListener('click', destroyBoxes);
 
 
 
@@ -84,5 +77,8 @@ destroyBut.addEventListener('click', destroyFun);
 
 
   
-  
-  
+ 
+
+
+
+ 

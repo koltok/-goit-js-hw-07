@@ -5,15 +5,18 @@
   //<input type="text" id="name-input" placeholder="Please enter your name" />
   //<h1>Hello, <span id="name-output">Anonymous</span>!</h1> 
 
-  const nameImput = document.querySelector("#name-input");
+  const nameInput = document.querySelector("#name-input");
   const nameOutput = document.querySelector("#name-output");
-const updateGreeting = () => {
-  nameImput.value = nameImput.value.trim();
-  if (nameImput.value.length >= 1)
-    {nameOutput.textContent = nameImput.value}};
-  nameImput.addEventListener("input", updateGreeting);
+  const updateGreeting = () => {
+  const trimmedValue = nameInput.value.trim();
+  nameOutput.textContent = trimmedValue !== "" ? trimmedValue : "Anonymous";};
+
+  nameInput.addEventListener("input", updateGreeting);
   //console.dir (nameImput);
- // console.log (nameOutput);
+// console.log (nameOutput);
+
+
+
 
     
   
